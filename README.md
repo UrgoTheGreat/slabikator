@@ -1,8 +1,10 @@
 # 📖 Slabikátor (SK/CZ)
 
+> 🚀 **Živá ukážka aplikácie:** [https://urgothegreat.github.io/slabikator/](https://urgothegreat.github.io/slabikator/)
+
 Slabikátor je jednoduchá, responzívna a rýchla webová aplikácia navrhnutá na automatické počítanie a analýzu počtu slabík v slovenskom a českom texte. Je optimalizovaná pre počítače aj mobilné zariadenia a dokáže rozpoznať špecifické jazykové nuansy, ktoré ovplyvňujú slabičnú štruktúru slov.
 
-Aplikácia funguje ako čisté klientske riešение (single HTML file) – všetka logika beží priamo vo vašom prehliadači prostredníctvom JavaScriptu bez potreby odosielania dát na server.
+Aplikácia funguje ako čisté klientske riešenie (single HTML file) – všetka logika beží priamo vo vašom prehliadači prostredníctvom JavaScriptu bez potreby odosielania dát na server.
 
 ## ✨ Kľúčové funkcie
 
@@ -24,21 +26,21 @@ Aplikácia rozdeľuje text na riadky a analyzuje každé slovo pomocou regulárn
 
 ## 🚀 Ako aplikáciu spustiť?
 
-Keďže je celý projekt zabalený do jedného súboru `slabiky.html`, spustenie je mimoriadne jednoduché:
+Keďže je celý projekt zabalený do jediného hlavného HTML súboru, spustenie je mimoriadne jednoduché:
 
 ### Lokálne na počítači
-1. Stiahnite si alebo skopírujte súbor `slabiky.html` do svojho počítača.
+1. Stiahnite si alebo skopírujte súbor `index.html` do svojho počítača.
 2. Dvakrát naň kliknite – súbor sa okamžite otvorí v akomkoľvek modernom webovom prehliadači.
 
-### Cez GitHub Pages (Zadarmo webová stránka z repozitára)
-Ak chcete projekt publikovať na internete priamo z tohto repozitára:
-1. Choďte do **Settings** vášho repozitára na GitHube.
-2. V ľavom menu kliknite na **Pages**.
-3. V sekcii *Build and deployment* zmeňte *Source* na **Deploy from a branch**.
-4. Vyberte vetvu `main` (alebo `master`) a priečinok `/(root)`, potom kliknite na **Save**.
-5. Počkajte približne 1-2 minúty a GitHub vám vygeneruje verejnú URL adresu, na ktorej bude aplikácia naživo fungovať pre kohokoľvek.
+### Cez GitHub Pages (Zadarmo webová stránka)
+Aplikácia je už plne nakonfigurovaná pre GitHub Pages. Priamo z hlavnej adresy repozitára sa spúšťa vďaka pomenovaniu hlavného súboru ako `index.html`.
 
 ## 📁 Štruktúra projektu
 
-Projekt pozostáva z jediného súboru:
-- `slabiky.html` - Obsahuje kompletnú štruktúru (HTML5), štýlovanie (CSS3 v tmavom režime) a aplikačnú logiku (Vanilla JavaScript). Nie sú potrebné žiadne externe knižnice ani frameworky.
+Projekt pozostáva z týchto súborov:
+- `index.html` - *(Pôvodne slabiky.html)* Obsahuje kompletnú štruktúru (HTML5), štýlovanie (CSS3 v tmavom režime) a aplikačnú logiku (Vanilla JavaScript). Premenovaním na `index.html` sa zabezpečilo správne automatické načítanie aplikácie cez GitHub Pages.
+- `README.md` - Dokumentácia k projektu.
+
+## 📝 Licencia
+
+Tento projekt je voľne dostupný. Môžete ho upravovať, šíriť a prispôsobovať pre vlastné vzdelávacie alebo osobné účely.
