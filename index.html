@@ -10,19 +10,19 @@
             background-color: #121212;
             color: #e0e0e0;
             margin: 0;
-            padding: 15px; /* Menší padding pre mobily */
+            padding: 15px;
         }
         h1 {
             text-align: center;
             color: #ffffff;
             margin-bottom: 20px;
-            font-size: 1.5rem; /* Responzívna veľkosť nadpisu */
+            font-size: 1.5rem;
         }
         .container {
             max-width: 1000px;
             margin: 0 auto;
             background: #1e1e1e;
-            padding: 15px; /* Menší padding pre mobily */
+            padding: 15px;
             border-radius: 8px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             box-sizing: border-box;
@@ -36,7 +36,7 @@
             padding: 12px;
             border-radius: 6px;
             border: 1px solid #444;
-            flex-wrap: wrap; /* Na mobile sa prepínače zlomia pod seba, ak treba */
+            flex-wrap: wrap;
         }
         .radio-group {
             display: flex;
@@ -48,7 +48,7 @@
         }
         input[type="radio"] {
             accent-color: #4CAF50;
-            width: 20px; /* Trochu väčšie pre ľahšie ťuknutie prstom */
+            width: 20px;
             height: 20px;
             cursor: pointer;
         }
@@ -60,14 +60,13 @@
             background-color: #2d2d2d;
         }
         
-        /* Spoločné vlastnosti pre zachovanie výšok */
         textarea, .results {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 16px; /* Zabraňuje iOS zariadeniu automaticky zoomovať po kliknutí */
+            font-size: 16px;
             line-height: 28px;
             padding: 10px;
             box-sizing: border-box;
-            height: 65vh; /* Dynamická výška: zaberie 65 % výšky obrazovky */
+            height: 65vh;
             min-height: 300px;
             margin: 0;
             border: none;
@@ -79,18 +78,17 @@
             color: #e0e0e0;
             resize: none;
             outline: none;
-            white-space: pre; /* Text sa nezalamuje, posúva sa horizontálne */
+            white-space: pre;
             overflow-x: auto;
             overflow-y: auto;
-            /* Plynulé scrollovanie na iOS */
             -webkit-overflow-scrolling: touch; 
         }
         
         .results {
-            width: 140px; /* Mierne užšie pre mobil, ale dosť pre text */
+            width: 140px;
             background-color: #222;
             border-left: 1px solid #444;
-            overflow: hidden; /* Posúva sa synchronizovane cez JS */
+            overflow: hidden;
             color: #b0bec5;
         }
         
@@ -100,7 +98,7 @@
             align-items: center;
             padding-left: 8px;
             white-space: nowrap;
-            font-size: 14px; /* Čísla môžu byť o kúsok menšie, aby sa zmestil alt */
+            font-size: 14px;
         }
         
         .highlight {
@@ -109,7 +107,6 @@
             font-weight: bold;
         }
 
-        /* Špecifické úpravy pre veľmi úzke obrazovky (napr. na výšku) */
         @media (max-width: 480px) {
             body {
                 padding: 5px;
@@ -118,14 +115,14 @@
                 padding: 10px;
             }
             .results {
-                width: 110px; /* Ešte užší stĺpec pre výsledky */
+                width: 110px;
             }
             .line-result {
-                font-size: 12px; /* Zmenšíme písmo pre "alt", aby nevypadlo z okna */
+                font-size: 12px;
                 padding-left: 5px;
             }
             textarea, .results {
-                height: 70vh; /* Na malom displeji využijeme viac miesta na výšku */
+                height: 70vh;
             }
         }
     </style>
@@ -155,7 +152,6 @@
         const resultOutput = document.getElementById('resultOutput');
         const rJazyk = document.querySelectorAll('input[name="jazyk"]');
 
-        // Podpora pre dotykové scrollovanie na mobiloch
         textInput.addEventListener('scroll', () => {
             resultOutput.scrollTop = textInput.scrollTop;
         });
@@ -204,8 +200,10 @@
 
                 let pocetRL = 0;
                 const slova = spracovanyRiadok.split(/[\s,.;!?()"-]+/);
+                
                 slova.forEach(slovo => {
-                    if (!lang.samohlasky.test(slovo)) {
+                    // OPRAVA: Používame .match() namiesto .test() kvôli g-flagu
+                    if (!slovo.match(lang.samohlasky)) {
                         const rl = slovo.match(lang.spoluhlaskyRL);
                         if (rl) pocetRL += rl.length;
                     } else {
